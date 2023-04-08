@@ -1,0 +1,35 @@
+.actions-button {
+    display: flex;
+    align-items: center;
+
+    &>*+* {
+        margin-left: 10px;
+    }
+
+    .completed {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.mat-mdc-table {
+    box-shadow: 0 5px 5px -3px #0003, 0 8px 10px 1px #00000024, 0 3px 14px 2px #0000001f;
+
+    .mat-column-title {
+        width: 300px;
+    }
+
+    .mat-column-dueDate {
+        width: 220px;
+    }
+
+    .mat-column-actions {
+        width: 150px;
+    }
+}
+
+.no-records {
+    box-shadow: 0 5px 5px -3px #0003, 0 8px 10px 1px #00000024, 0 3px 14px 2px #0000001f;
+    text-align: center;
+    padding: 1rem;
+}

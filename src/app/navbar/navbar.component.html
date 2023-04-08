@@ -1,0 +1,7 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Netlink</span>
+      <span class="spacer"></span>
+      <a mat-button (click)="authService.SignOut()" *ngIf="authService.isLoggedIn">Logout</a>
+    </mat-toolbar-row>
+  </mat-toolbar>

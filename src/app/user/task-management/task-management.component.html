@@ -1,0 +1,55 @@
+<div class="actions-button">
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" (click)="createNewTask()">Create New Task</button>
+</div>
+<br>
+<table *ngIf="dataSource.length; else noRecords" mat-table [dataSource]="dataSource" matSort matSortActive="dueDate"
+    matSortDisableClear matSortDirection="desc">
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- Due Date Column -->
+    <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.dueDate | date: 'MMM dd YYYY HH:MM'}} </td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef aria-label="row actions">Actions</th>
+        <td mat-cell *matCellDef="let element">
+            <div class="actions-button">
+                <button mat-mini-fab color="primary" *ngIf="!element.status; else completedTask"
+                    (click)="markAsCompleted(element)" matTooltip="Mark as completed" [matTooltipPosition]="'above'">
+                    <mat-icon>done</mat-icon>
+                </button>
+                <button mat-mini-fab color="primary" (click)="deleteTask(element)" matTooltip="Delete task"
+                    [matTooltipPosition]="'above'">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<ng-template #completedTask>
+    <img class="completed" matTooltip="Task completed" src="./assets/images/accept.png" alt="completed">
+</ng-template>
+
+<ng-template #noRecords>
+    <div class="no-records">
+        No records availabe
+    </div>
+</ng-template>
