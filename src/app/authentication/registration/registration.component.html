@@ -12,6 +12,9 @@
                 <mat-error *ngIf="errorHandling('name', 'required')">
                     Name is required
                 </mat-error>
+                <mat-error *ngIf="errorHandling('name', 'maxlength')">
+                    Description can be max 50 characters long.
+                </mat-error>
             </mat-form-field>
             <mat-form-field appearance="fill" class="w-100-per">
                 <mat-label>Enter your email</mat-label>

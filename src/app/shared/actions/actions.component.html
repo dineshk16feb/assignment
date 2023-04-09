@@ -1,0 +1,14 @@
+<div class="actions-button">
+    <button mat-mini-fab color="primary" *ngIf="!task.status; else completedTask" (click)="markAsCompleted(task)"
+        matTooltip="Mark as completed" [matTooltipPosition]="'above'">
+        <mat-icon>done</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary" (click)="deleteTask(task)" matTooltip="Delete task"
+        [matTooltipPosition]="'above'">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>
+
+<ng-template #completedTask>
+    <img class="completed" matTooltip="Task completed" src="./assets/images/accept.png" alt="completed">
+</ng-template>

@@ -1,10 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskComponent } from '../create-task/create-task.component';
-import { TaskService } from '../create-task/task.service';
-import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { TaskService } from '../task.service';
 import { Task } from 'src/app/models/task.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -56,27 +53,5 @@ export class TaskManagementComponent implements OnInit {
         });
       }
     });
-  }
-
-  deleteTask(task: Task) {
-    const dialogRef = this.dialog.open(DeleteDialogComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.taskService.delete(task.id);
-        this.dataSource = this.dataSource.filter(data => (task.id !== data.id) && data);
-        this._snackBar.open('Item deleted successfully!');
-      }
-    });
-
-
-  }
-
-  markAsCompleted(task: Task) {
-    if (!task.status) {
-      this.taskService.update(task.id);
-      this.dataSource = this.dataSource.map(data => (task.id === data.id) ? { ...data, status: true } : data);
-      this._snackBar.open('Task completed successfully!');
-    }
   }
 }

@@ -12,6 +12,7 @@ body {
 
 .auth-background .main-section {
     position: relative;
+    padding-top: calc(4rem + 64px) !important;
 
     &::after {
         content: "";

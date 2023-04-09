@@ -7,12 +7,18 @@
             <mat-error *ngIf="errorHandling('title', 'required')">
                 Title is required
             </mat-error>
+            <mat-error *ngIf="errorHandling('title', 'maxlength')">
+                Title can be max 50 characters long.
+            </mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill" class="w-100-per">
             <mat-label>Description</mat-label>
-            <input matInput formControlName="description" required>
+            <textarea matInput formControlName="description" required></textarea>
             <mat-error *ngIf="errorHandling('description', 'required')">
                 Description is required
+            </mat-error>
+            <mat-error *ngIf="errorHandling('description', 'maxlength')">
+                Description can be max 500 characters long.
             </mat-error>
         </mat-form-field>
         <div mat-dialog-actions>

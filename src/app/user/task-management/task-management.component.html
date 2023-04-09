@@ -1,4 +1,4 @@
-<div class="actions-button">
+<div class="new-task">
     <span class="spacer"></span>
     <button mat-raised-button color="primary" (click)="createNewTask()">Create New Task</button>
 </div>
@@ -28,17 +28,7 @@
         <ng-container matColumnDef="actions" stickyEnd>
             <th mat-header-cell *matHeaderCellDef aria-label="row actions">Actions</th>
             <td mat-cell *matCellDef="let element">
-                <div class="actions-button">
-                    <button mat-mini-fab color="primary" *ngIf="!element.status; else completedTask"
-                        (click)="markAsCompleted(element)" matTooltip="Mark as completed"
-                        [matTooltipPosition]="'above'">
-                        <mat-icon>done</mat-icon>
-                    </button>
-                    <button mat-mini-fab color="primary" (click)="deleteTask(element)" matTooltip="Delete task"
-                        [matTooltipPosition]="'above'">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </div>
+                <app-actions [task]="element" [dataSource]="dataSource" (updateTaskEvent)="dataSource = $event"></app-actions>
             </td>
         </ng-container>
 
@@ -46,9 +36,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>
-<ng-template #completedTask>
-    <img class="completed" matTooltip="Task completed" src="./assets/images/accept.png" alt="completed">
-</ng-template>
 
 <ng-template #noRecords>
     <div class="no-records">

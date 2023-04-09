@@ -1,42 +1,37 @@
-.actions-button {
+.new-task {
     display: flex;
-    align-items: center;
-
-    &>*+* {
-        margin-left: 10px;
-    }
-
-    .completed {
-        width: 40px;
-        height: 40px;
-    }
 }
 
 .table-container {
     max-width: 100%;
     overflow: auto;
     box-shadow: 0 5px 5px -3px #0003, 0 8px 10px 1px #00000024, 0 3px 14px 2px #0000001f;
-}
 
-.mat-mdc-table {
-    width: 100%;
+    .mat-mdc-table {
+        width: 100%;
 
-    .mat-column-title {
-        width: 300px;
+        .mdc-data-table__cell,
+        .mdc-data-table__header-cell {
+            padding: 8px 16px;
+        }
+
+        .mat-column-title {
+            width: 300px;
+        }
+
+        .mat-column-dueDate {
+            width: 220px;
+            white-space: nowrap;
+        }
+
+        .mat-column-actions {
+            width: 150px;
+        }
     }
 
-    .mat-column-dueDate {
-        width: 220px;
-        white-space: nowrap;
+    .no-records {
+        background-color: #fff;
+        text-align: center;
+        padding: 1rem;
     }
-
-    .mat-column-actions {
-        width: 150px;
-    }
-}
-
-.no-records {
-    background-color: #fff;
-    text-align: center;
-    padding: 1rem;
 }

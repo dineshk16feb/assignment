@@ -12,7 +12,7 @@ export class RegistrationComponent {
 
   constructor(private fb: FormBuilder, public authService: AuthService) {
     this.registrationForm = this.fb.group({
-      name: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
