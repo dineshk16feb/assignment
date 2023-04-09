@@ -3,7 +3,7 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
-import { AuthGuard } from './auth/auth.gaurds';
+import { AuthGuard } from './auth/auth.gaurd';
 
 @Component({
   selector: 'app-root',

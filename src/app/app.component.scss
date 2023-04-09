@@ -2,4 +2,9 @@
     display: block;
     min-height: 100%;
     padding: calc(2rem + 64px) 2rem 2rem;
+    background-color: rgba(63,81,181,.15);
+
+    @media only screen and (max-width: 767px) {
+        padding: calc(16px + 64px) 16px 16px;
+    }
 }
